@@ -1,4 +1,6 @@
-class Professor(val nome: String, val sobrenome: String, val tempoCasa: Int, val codProf: Int){
+open class Professor(val nome: String, val sobrenome: String, val codProf: Int){
+
+    val tempoCasa = 0
 
     override fun equals(other: Any?): Boolean {
         if (other is Professor){

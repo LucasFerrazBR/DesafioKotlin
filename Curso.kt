@@ -2,7 +2,22 @@ class Curso(val nome: String, val codCurso: Int, val maxAlunos: Int) {
 
     private var professorTitular: ProfessorTitular? = null
     private var professorAdjunto: ProfessorAdjunto? = null
-    private val alunosMatriculados = mutableListOf<Aluno>()
+    val alunosMatriculados = mutableListOf<Aluno>()
+
+    fun adicionarUmAluno(umAluno: Aluno): Boolean{
+        if (alunosMatriculados.count() >= maxAlunos.toFloat()) return false
+
+        for (Aluno in alunosMatriculados){
+            if (umAluno.equals(Aluno)) return false
+            }
+
+        alunosMatriculados.add(umAluno)
+        return true
+    }
+
+    fun excluirAluno(umAluno: Aluno){
+        alunosMatriculados.remove(umAluno)
+    }
 
     override fun equals(other: Any?): Boolean {
         if (other is Curso){
